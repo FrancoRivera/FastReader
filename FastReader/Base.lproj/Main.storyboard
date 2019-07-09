@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +14,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FastReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAo-0G-38W">
+                                <rect key="frame" x="133" y="303.5" width="110" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaL-c0-Suv">
+                                <rect key="frame" x="50" y="546" width="275" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="0.98999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-nU-Buh">
+                                <rect key="frame" x="48" y="486" width="279" height="31"/>
+                                <connections>
+                                    <action selector="intervalChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="QK1-Xg-J1d"/>
+                                </connections>
+                            </slider>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-ex-Ztq">
+                                <rect key="frame" x="66" y="141" width="243" height="5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="e1K-0B-T1R"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has leido:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDx-im-zBv">
+                                <rect key="frame" x="149.5" y="40" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wordsReadLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-np-cM9">
+                                <rect key="frame" x="50" y="71" width="275" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7qj-6a-rm8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5e2-ex-Ztq" secondAttribute="trailing" constant="50" id="40v-ie-FKu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xaL-c0-Suv" secondAttribute="trailing" constant="50" id="43r-Me-GYA"/>
+                            <constraint firstItem="lAo-0G-38W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5uU-KF-GjP"/>
+                            <constraint firstItem="xaL-c0-Suv" firstAttribute="top" secondItem="nJV-nU-Buh" secondAttribute="bottom" constant="30" id="HbN-OS-IlO"/>
+                            <constraint firstItem="xaL-c0-Suv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Ihq-BH-2hX"/>
+                            <constraint firstItem="lAo-0G-38W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="P0Y-rG-e3f"/>
+                            <constraint firstItem="nJV-nU-Buh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Sda-Jc-Esu"/>
+                            <constraint firstItem="tDx-im-zBv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="buD-Fh-RHE"/>
+                            <constraint firstItem="5e2-ex-Ztq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="emU-sh-j8y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nJV-nU-Buh" secondAttribute="trailing" constant="50" id="fyk-bF-nBd"/>
+                            <constraint firstItem="l8b-np-cM9" firstAttribute="top" secondItem="tDx-im-zBv" secondAttribute="bottom" constant="10" id="hgA-Bw-zXi"/>
+                            <constraint firstItem="tDx-im-zBv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kkC-Km-IpN"/>
+                            <constraint firstItem="l8b-np-cM9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="tpa-wR-yqS"/>
+                            <constraint firstItem="5e2-ex-Ztq" firstAttribute="top" secondItem="l8b-np-cM9" secondAttribute="bottom" constant="50" id="uwM-vH-dul"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l8b-np-cM9" secondAttribute="trailing" constant="50" id="x76-yL-Fg2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xaL-c0-Suv" secondAttribute="bottom" constant="100" id="zAf-ON-cku"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="WordLabel" destination="lAo-0G-38W" id="VSS-sg-oN1"/>
+                        <outlet property="progressViewParrafo" destination="5e2-ex-Ztq" id="hlF-bo-RV1"/>
+                        <outlet property="sliderWpm" destination="nJV-nU-Buh" id="NMK-Pe-Gdd"/>
+                        <outlet property="wordsRead" destination="l8b-np-cM9" id="RMh-No-oXC"/>
+                        <outlet property="wpmLabel" destination="xaL-c0-Suv" id="kJr-HC-cVI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
